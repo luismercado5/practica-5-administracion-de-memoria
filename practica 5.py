@@ -17,12 +17,12 @@ def First_fit(n, proceso, mem_req, tam_bloq):
                 Order[i] = j
     print()
     print("primer ajuste \n")
-    print("proceso \t Tamaño del proceso \t bloque")
+    print("proceso  Tamaño del proceso \t bloque")
     for x in range(len(proceso)):
         if Order[x] == None:
-            print(" ", proceso[x], " ", mem_req[x], "\t\t no localizado")
+            print(" \t", proceso[x], "\t\t ", mem_req[x], "\t\t\t no localizado")
         else:
-            print(" ", proceso[x], " ", mem_req[x], "\t\t", str(Order[x] + 1))
+            print(" ", proceso[x], "\t\t", mem_req[x], "\t\t\t", str(Order[x] + 1))
     print()
     return
 
@@ -41,12 +41,12 @@ def Best_fit(n, proceso, mem_req, tam_bloq):
                 temp.remove(min(temp))
     print()
     print("mejor ajuste \n")
-    print("proceso \t Tamaño del proceso \t bloque")
+    print("proceso  Tamaño del proceso \t bloque")
     for x in range(len(proceso)):
         if Order[x] == None:
-            print(" ", proceso[x], " ", mem_req[x], "\t\t no localizado")
+            print(" \t", proceso[x], "\t\t ", mem_req[x], "\t\t no localizable")
         else:
-            print(" ", proceso[x], " ", mem_req[x], "\t\t", str(Order[x] + 1))
+            print(" \t", proceso[x], "\t \t", mem_req[x], "\t\t\t", str(Order[x] + 1))
     print()
     return
 
@@ -68,14 +68,14 @@ def worst_fit(n, proceso, mem_req, tam_bloq):
     print("proceso \t Tamaño del proceso \t bloque")
     for x in range(len(proceso)):
         if Order[x] == None:
-            print(" ", proceso[x], " ", mem_req[x], "\t\t no localizado")
+            print("\t\t ", proceso[x], "\t ", mem_req[x], "\t\t no localizable")
         else:
-            print(" ", proceso[x], " ", mem_req[x], "\t\t", str(Order[x] + 1))
+            print("\t\t ", proceso[x], " \t\t", mem_req[x], "\t\t", str(Order[x] + 1))
     print()
     return
 
 while (True):
-    print("1. Primer ajuste 2. mejor ajuste 5. peor ajuste")
+    print("1. Primer ajuste 2. mejor ajuste 3. peor ajuste, 4. salir")
     choice = int(input("elige el algoritmo"))
     
     if choice == 1:
@@ -96,7 +96,7 @@ while (True):
             tam_bloq = eval(input("escribe el tamaño del bloque"))
             Best_fit(n, proceso, mem_req, tam_bloq)
         
-    elif choice == 5:
+    elif choice == 3:
             n = int(input("pon el numero de procesos"))
             proceso = []
             for i in range(1, n + 1):
@@ -104,7 +104,7 @@ while (True):
             mem_req = eval(input("escribe la memoria solicitada"))
             tam_bloq = eval(input("escribe el tamaño del bloque"))
             worst_fit(n, proceso, mem_req, tam_bloq)
-    elif choice == 6:
+    elif choice == 4:
             print("cerrando")
             break
     else:
